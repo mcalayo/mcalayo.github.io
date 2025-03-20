@@ -10,7 +10,7 @@ type NavButton = {
 }
 
 const NavButton = (buttonType: NavButton) => {
-  const [showHamburger, setShowHamburger] = useState(false)
+  // const [showHamburger, setShowHamburger] = useState(false)
   const [showUserMenu, setShowUserMenu] = useState(false)
 
   const handleUserClick = () => {

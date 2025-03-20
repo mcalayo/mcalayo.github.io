@@ -14,13 +14,13 @@ const Navbar = () => {
           type='button'
           className='me-2 mb-2 rounded-full bg-sky-300/20 px-5 py-2.5 text-center text-sm font-medium text-slate-500 hover:bg-sky-300/50'
         >
-          <a href='/'>Home</a>
+          <Link href='/'>Home</Link>
         </button>
         <button
           type='button'
           className='me-2 mb-2 rounded-full bg-sky-300/20 px-5 py-2.5 text-center text-sm font-medium text-slate-500 hover:bg-sky-300/50'
         >
-          <a href='/about'>About</a>
+          <Link href='/about'>About</Link>
         </button>
         <button
           type='button'
