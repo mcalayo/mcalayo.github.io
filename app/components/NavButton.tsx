@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import hamburger from '../images/hamburger.png'
 import user from '../images/user.png'
 import Image from 'next/image'
@@ -9,8 +10,14 @@ type NavButton = {
 }
 
 const NavButton = (buttonType: NavButton) => {
+
+  const [showHamburger, setShowHamburger] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+
   const handleUserClick = () => {
-    console.log('user')
+    console.log(showUserMenu, 'first');
+    if (showUserMenu) { setShowUserMenu(false) } else { setShowUserMenu(true) };
+    console.log(showUserMenu, 'second');
   }
 
   const handleHamburgerClick = () => {
