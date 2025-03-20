@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@theme {
+    --breakpoint-xxs: 20rem;
+    --breakpoint-xs: 25rem;
+    --breakpoint-mid: 768px;
+}
+
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+  
+    .scrollbar::-webkit-scrollbar-track {
+      border-radius: 100vh;
+      background: #aae2fe;
+    }
+  
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #96ddff;
+    }
+  }

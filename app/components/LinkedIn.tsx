@@ -15,7 +15,7 @@ export default function LinkedIn() {
         data-locale='en_US'
         data-size='large'
         data-theme='light'
-        data-type='HORIZONTAL'
+        data-type='VERTICAL'
         data-vanity='michaelcalayo'
         data-version='v1'
       ></div>

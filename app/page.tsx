@@ -4,12 +4,12 @@ import TypingEffect from './components/ReactTyping'
 export default function Home() {
   return (
     <section className='flex p-12'>
-      <div className='h-[487px] flex-row justify-between gap-12 rounded-2xl bg-sky-300/20 p-2 md:flex'>
+      <div className='flex h-[487px] flex-col justify-between gap-12 rounded-2xl bg-sky-300/20 p-2 md:flex-row'>
         <div className='flex h-full w-full flex-col overflow-hidden p-4'>
-          <div className='flex text-3xl font-bold'>
-            <TypingEffect messages={['test']}></TypingEffect>
+          <div className='mid:text-l flex text-sm font-bold'>
+            <TypingEffect messages={['Welcome to my page']}></TypingEffect>
           </div>
-          <p className='flex'>
+          <p className='scrollbar flex overflow-auto'>
             Hey there! I&aposm Michael, and when I&aposm not coding or diving
             into creative projects, you&aposll find me pursuing a variety of
             hobbies that keep me inspired and energized. I have a deep love for
