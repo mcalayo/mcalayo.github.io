@@ -7,7 +7,7 @@ interface TypingEffectProps {
 }
 
 const TypingEffect: React.FC<TypingEffectProps> = ({ messages }) => {
-  let messagesSequence = []
+  const messagesSequence = []
 
   for (let i = 0; i < messages.length; i++) {
     messagesSequence.push(messages[i])
