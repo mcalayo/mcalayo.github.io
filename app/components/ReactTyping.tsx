@@ -18,7 +18,7 @@ const TypingEffect: React.FC<TypingEffectProps> = ({ messages }) => {
     <TypeAnimation
       sequence={messagesSequence}
       wrapper='span'
-      speed={50}
+      speed={25}
       style={{ fontSize: '2em', display: 'inline-block' }}
       cursor={false}
     />

@@ -1,33 +1,19 @@
 'use client'
 
-import { useState } from 'react'
 import hamburger from '../../public/images/hamburger.png'
 import user from '../../public/images/user.png'
 import Image from 'next/image'
 
-type NavButton = {
-  type: string
+type NavButtonProps = {
+  buttonType: string
+  onClickHandler: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const NavButton = (buttonType: NavButton) => {
-  // const [showHamburger, setShowHamburger] = useState(false)
-  const [showUserMenu, setShowUserMenu] = useState(false)
-
-  const handleUserClick = () => {
-    console.log(showUserMenu, 'first')
-    if (showUserMenu) {
-      setShowUserMenu(false)
-    } else {
-      setShowUserMenu(true)
-    }
-    console.log(showUserMenu, 'second')
-  }
-
-  const handleHamburgerClick = () => {
-    console.log('borger')
-  }
-
-  if (buttonType.type === 'USER') {
+const NavButton: React.FC<NavButtonProps> = ({
+  buttonType,
+  onClickHandler
+}) => {
+  if (buttonType === 'USER') {
     return (
       <div className='flex items-center'>
         <a
@@ -38,17 +24,17 @@ const NavButton = (buttonType: NavButton) => {
         </a>
         <button
           className='rounded-lg p-1 hover:bg-sky-300/50'
-          onClick={handleUserClick}
+          onClick={onClickHandler}
         >
           <Image src={user} alt='User' width={24} height={24}></Image>
         </button>
       </div>
     )
-  } else if (buttonType.type === 'HAMBURGER') {
+  } else if (buttonType === 'HAMBURGER') {
     return (
       <button
         className='rounded-lg p-1 hover:bg-sky-300/50'
-        onClick={handleHamburgerClick}
+        onClick={onClickHandler}
       >
         <Image src={hamburger} alt='Hamburger' width={24} height={24}></Image>
       </button>

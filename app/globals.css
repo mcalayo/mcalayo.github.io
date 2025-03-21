@@ -4,6 +4,7 @@
     --breakpoint-xxs: 20rem;
     --breakpoint-xs: 25rem;
     --breakpoint-mid: 768px;
+    --breakpoint-spotify-small: 354px;
 }
 
 @layer utilities {
