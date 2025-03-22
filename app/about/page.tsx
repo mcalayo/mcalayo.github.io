@@ -9,7 +9,7 @@ export default async function Page() {
     <section className='flex flex-col p-12'>
       <div className='h-[487px] flex-row justify-between gap-12 rounded-2xl bg-sky-300/20 p-2 md:flex'>
         <div className='flex h-full w-full flex-col overflow-hidden p-4'>
-          <div className='flex text-3xl font-bold'>
+          <div className='mid:text-l flex pb-1 text-sm font-bold'>
             <TypingEffect messages={['About me']}></TypingEffect>
           </div>
           <p className='flex'>
@@ -38,7 +38,7 @@ export default async function Page() {
             just chat about what&aposs next on the horizon!
           </p>
         </div>
-        <div>
+        <div className=''>
           <LinkedIn></LinkedIn>
           <ResumeButton></ResumeButton>
         </div>

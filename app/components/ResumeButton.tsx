@@ -7,7 +7,7 @@ const ResumeButton = () => {
 
   return (
     <button
-      className='me-2 mb-2 rounded-full bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:cursor-pointer hover:bg-blue-800 focus:outline-none'
+      className='text-l me-2 mb-2 rounded-full bg-blue-700 px-4 py-1 text-center font-medium text-white hover:cursor-pointer hover:bg-blue-800 focus:outline-none'
       onClick={() => console.log('buttonclick')}
     >
       View Resume

@@ -3,8 +3,8 @@ import TypingEffect from './components/ReactTyping'
 
 export default function Home() {
   return (
-    <section className='spotify-small:p-12 spotify-small:gap-12 flex flex-col gap-6 p-6'>
-      <div className='flex h-[487px] flex-col justify-between gap-12 rounded-2xl bg-sky-300/20 p-2 md:flex-row'>
+    <section className='mid:p-12 flex flex-col gap-4 p-6'>
+      <div className='flex h-[516px] flex-col justify-between gap-12 rounded-2xl bg-sky-300/20 p-2 md:flex-row'>
         <div className='flex h-full w-full flex-col overflow-hidden p-4'>
           <div className='mid:text-l flex pb-1 text-sm font-bold'>
             <TypingEffect messages={['Welcome to my page']}></TypingEffect>
@@ -38,7 +38,7 @@ export default function Home() {
         <iframe
           src='https://open.spotify.com/embed/artist/3svCtW3c7D7OC51qvskpwa?utm_source=generator'
           width='350'
-          height='471'
+          height='500'
           allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
           loading='lazy'
           className='mid:block hidden'
@@ -47,7 +47,7 @@ export default function Home() {
       <iframe
         src='https://open.spotify.com/embed/artist/3svCtW3c7D7OC51qvskpwa?utm_source=generator'
         width='100%'
-        height='471'
+        height='500'
         allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
         loading='lazy'
         className='mid:hidden'
