@@ -9,7 +9,7 @@ export default async function Page() {
     <section className='mid:p-12 flex flex-col gap-4 p-6'>
       <div className='flex h-[516px] flex-col justify-between gap-12 rounded-2xl bg-sky-300/20 p-2 md:flex-row'>
         <div className='flex h-full w-full flex-col overflow-hidden p-4'>
-          <div className='mid:text-l flex pb-1 text-sm text-slate-600 font-bold'>
+          <div className='mid:text-l flex pb-1 text-sm font-bold text-slate-600'>
             <TypingEffect messages={['About me']}></TypingEffect>
           </div>
           <p className='scrollbar flex overflow-auto'>
@@ -39,20 +39,20 @@ export default async function Page() {
           </p>
         </div>
 
-        <div className='h-[468px] w-[350px] flex-col rounded-xl gap-2 mid:flex hidden'>
+        <div className='mid:flex hidden h-[468px] w-[350px] flex-col gap-2 rounded-xl'>
           <LinkedIn></LinkedIn>
           <GitHub></GitHub>
           <ResumeButton></ResumeButton>
         </div>
       </div>
-      <div className='flex h-[468px] w-full flex-col rounded-xl gap-2 mid:hidden'>
-          <LinkedIn></LinkedIn>
-          <GitHub></GitHub>
-          <ResumeButton></ResumeButton>
-        </div>
+      <div className='mid:hidden flex h-[468px] w-full flex-col gap-2 rounded-xl'>
+        <LinkedIn></LinkedIn>
+        <GitHub></GitHub>
+        <ResumeButton></ResumeButton>
+      </div>
       {false && (
-        <div className='absolute left-0 top-16 w-full h-[calc(100vh-64px)]'>
-          <button className='z-50 absolute'>TEST</button>
+        <div className='absolute top-16 left-0 h-[calc(100vh-64px)] w-full'>
+          <button className='absolute z-50'>TEST</button>
           <div className='h-full'>
             <Resume></Resume>
           </div>
