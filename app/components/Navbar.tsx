@@ -83,7 +83,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className='absolute top-16 left-80 h-[calc(100vh-64px)] w-[calc(100vw-320px)] bg-black opacity-20'
+            className='absolute top-16 left-80 hidden h-[calc(100vh-64px)] w-[calc(100vw-320px)] bg-black opacity-20 sm:block'
             onClick={() => setShowHamburgerMenu(false)}
           ></button>
         </div>
@@ -132,7 +132,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className='absolute top-16 left-0 h-[calc(100vh-64px)] w-[calc(100vw-320px)] bg-black opacity-20'
+            className='absolute top-16 left-0 hidden h-[calc(100vh-64px)] w-[calc(100vw-320px)] bg-black opacity-20 sm:block'
             onClick={() => setShowUserMenu(false)}
           ></button>
         </div>
