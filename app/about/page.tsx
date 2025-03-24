@@ -12,7 +12,7 @@ export default async function Page() {
           <div className='mid:text-l flex pb-1 text-sm text-slate-600 font-bold'>
             <TypingEffect messages={['About me']}></TypingEffect>
           </div>
-          <p className='flex'>
+          <p className='scrollbar flex overflow-auto'>
             Hey there! I&aposm Michael, and when I&aposm not coding or diving
             into creative projects, you&aposll find me pursuing a variety of
             hobbies that keep me inspired and energized. I have a deep love for
