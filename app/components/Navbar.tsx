@@ -19,6 +19,7 @@ const Navbar = () => {
     if (showHamburgerMenu) {
       setShowHamburgerMenu(false)
     } else {
+      setShowUserMenu(false)
       setShowHamburgerMenu(true)
     }
   }
@@ -27,6 +28,7 @@ const Navbar = () => {
     if (showUserMenu) {
       setShowUserMenu(false)
     } else {
+      setShowHamburgerMenu(false)
       setShowUserMenu(true)
     }
   }
@@ -44,7 +46,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='grid h-16 grid-flow-col grid-rows-1 items-center justify-between border-b border-black px-6'>
+    <div className='grid h-16 grid-flow-col grid-rows-1 items-center justify-between border-b border-slate-400 px-6'>
       <div className='z-10'>
         <NavButton
           onClickHandler={handleHamburgerClick}
@@ -55,7 +57,7 @@ const Navbar = () => {
         <div className='absolute top-16 left-0 flex h-[calc(100vh-64px)] w-screen flex-col gap-y-6 overflow-hidden bg-sky-100 px-4 py-6 sm:w-80'>
           <button onClick={() => handleMenuItemClick(1)} type='button'>
             <Link
-              className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-500 hover:bg-sky-300/50'
+              className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
               href={'/'}
             >
               Home
@@ -63,7 +65,7 @@ const Navbar = () => {
           </button>
           <button onClick={() => handleMenuItemClick(1)} type='button'>
             <Link
-              className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-500 hover:bg-sky-300/50'
+              className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
               href={'/about'}
             >
               About
@@ -71,7 +73,7 @@ const Navbar = () => {
           </button>
           <button onClick={() => handleMenuItemClick(1)} type='button'>
             <Link
-              className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-500 hover:bg-sky-300/50'
+              className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
               href={'/music'}
             >
               Music
@@ -80,7 +82,7 @@ const Navbar = () => {
         </div>
       )}
 
-      <Link href='/' className='xs:text-4xl text-2xl font-bold'>
+      <Link href='/' className='xs:text-4xl text-2xl font-bold text-slate-700'>
         Michael Calayo
       </Link>
       <NavButton
@@ -92,21 +94,21 @@ const Navbar = () => {
           <button
             onClick={() => handleMenuItemClick(2)}
             type='button'
-            className='me-2 mb-2 cursor-pointer rounded-full bg-sky-300/20 px-5 py-2.5 text-center text-sm font-medium text-slate-500 hover:bg-sky-300/50'
+            className='me-2 mb-2 cursor-pointer rounded-full bg-sky-300/20 px-5 py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
           >
             Log-In
           </button>
           <button
             onClick={() => handleMenuItemClick(2)}
             type='button'
-            className='me-2 mb-2 cursor-pointer rounded-full bg-sky-300/20 px-5 py-2.5 text-center text-sm font-medium text-slate-500 hover:bg-sky-300/50'
+            className='me-2 mb-2 cursor-pointer rounded-full bg-sky-300/20 px-5 py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
           >
             Profile
           </button>
           <button
             onClick={() => handleMenuItemClick(3)}
             type='button'
-            className='me-2 mb-2 cursor-pointer rounded-full bg-sky-300/20 px-5 py-2.5 text-center text-sm font-medium text-slate-500 hover:bg-sky-300/50'
+            className='me-2 mb-2 cursor-pointer rounded-full bg-sky-300/20 px-5 py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
           >
             Log-Out
           </button>

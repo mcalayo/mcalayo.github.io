@@ -5,6 +5,7 @@
     --breakpoint-xs: 25rem;
     --breakpoint-mid: 768px;
     --breakpoint-spotify-small: 354px;
+    --breakpoint-linkedin-lg: 1177px
 }
 
 @layer utilities {

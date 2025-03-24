@@ -6,7 +6,7 @@ export default function Home() {
     <section className='mid:p-12 flex flex-col gap-4 p-6'>
       <div className='flex h-[516px] flex-col justify-between gap-12 rounded-2xl bg-sky-300/20 p-2 md:flex-row'>
         <div className='flex h-full w-full flex-col overflow-hidden p-4'>
-          <div className='mid:text-l flex pb-1 text-sm font-bold'>
+          <div className='mid:text-l flex pb-1 text-sm text-slate-600 font-bold'>
             <TypingEffect messages={['Welcome to my page']}></TypingEffect>
           </div>
           <p className='scrollbar flex overflow-auto'>
