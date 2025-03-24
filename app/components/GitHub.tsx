@@ -20,7 +20,6 @@ export default function GitHub() {
             <Link
               className='text-l rounded-full bg-sky-700 px-4 py-1 mt-2 text-center font-medium text-white hover:cursor-pointer hover:bg-sky-800 focus:outline-none'
               href={'https://github.com/mcalayo'}
-              target='blank'
             >
               View Profile
             </Link>
