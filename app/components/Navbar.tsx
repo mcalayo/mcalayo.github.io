@@ -91,12 +91,12 @@ const Navbar = () => {
 
       <Link
         href='/'
-        className='xs:text-4xl absolute left-1/2 -translate-x-1/2 text-2xl font-bold text-slate-700'
+        className='title-md:text-4xl absolute left-1/2 -translate-x-1/2 text-2xl font-bold text-slate-700'
       >
         Michael Calayo
       </Link>
 
-      <div className='absolute right-[calc(100%-24px)] z-10'>
+      <div className='absolute right-6 z-10 flex'>
         <NavButton
           onClickHandler={handleUserClick}
           buttonType={'USER'}
@@ -108,7 +108,7 @@ const Navbar = () => {
             <button onClick={() => handleMenuItemClick(2)} type='button'>
               <Link
                 className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[123px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
-                href={'/'}
+                href={'/log-in'}
               >
                 Log-In
               </Link>
