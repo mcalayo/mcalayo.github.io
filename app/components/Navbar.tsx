@@ -54,8 +54,8 @@ const Navbar = () => {
         ></NavButton>
       </div>
       {showHamburgerMenu && (
-        <div>
-          <div className='absolute top-16 left-0 flex h-[calc(100vh-64px)] w-screen flex-col gap-y-6 overflow-hidden bg-sky-100 px-4 py-6 sm:w-80'>
+        <div className='absolute top-16 left-0'>
+          <div className='flex h-[calc(100vh-64px)] w-screen flex-col gap-y-6 overflow-hidden bg-sky-100 px-4 py-6 sm:w-80'>
             <button onClick={() => handleMenuItemClick(1)} type='button'>
               <Link
                 className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
@@ -83,7 +83,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className='absolute top-16 left-80 hidden h-[calc(100vh-64px)] w-[calc(100vw-320px)] bg-black opacity-20 sm:block'
+            className='absolute top-0 left-80 hidden h-[calc(100vh-64px)] w-[calc(100vw-320px)] bg-black opacity-20 sm:block'
             onClick={() => setShowHamburgerMenu(false)}
           ></button>
         </div>
@@ -91,20 +91,20 @@ const Navbar = () => {
 
       <Link
         href='/'
-        className='title-md:text-4xl absolute left-1/2 -translate-x-1/2 text-2xl font-bold text-slate-700'
+        className='title-md:text-4xl text-2xl font-bold text-slate-700'
       >
         Michael Calayo
       </Link>
 
-      <div className='absolute right-6 z-10 flex'>
+      <div className='z-10 flex'>
         <NavButton
           onClickHandler={handleUserClick}
           buttonType={'USER'}
         ></NavButton>
       </div>
       {showUserMenu && (
-        <div>
-          <div className='absolute top-16 right-0 flex h-[calc(100vh-64px)] w-screen flex-col gap-y-6 overflow-hidden bg-sky-100 px-4 py-6 sm:w-80'>
+        <div className='absolute top-16 left-0'>
+          <div className='absolute left-[calc(100vw-320px)] flex h-[calc(100vh-64px)] w-screen flex-col gap-y-6 overflow-hidden bg-sky-100 px-4 py-6 sm:w-80'>
             <button onClick={() => handleMenuItemClick(2)} type='button'>
               <Link
                 className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[117px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
@@ -132,7 +132,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className='absolute top-16 left-0 hidden h-[calc(100vh-64px)] w-[calc(100vw-320px)] bg-black opacity-20 sm:block'
+            className='absolute top-0 left-0 hidden h-[calc(100vh-64px)] w-[calc(100vw-320px)] bg-black opacity-20 sm:block'
             onClick={() => setShowUserMenu(false)}
           ></button>
         </div>
