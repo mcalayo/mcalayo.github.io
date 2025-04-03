@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export default function LinkedIn() {
   return (
-    <div>
+    <div className='shadow-md rounded-xl'>
       <div className='flex rounded-t-xl border-b-1 border-slate-400 bg-gray-200 p-3'>
         <Image
           src={LinkedInLogo}

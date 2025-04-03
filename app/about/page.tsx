@@ -12,7 +12,7 @@ export default async function Page() {
             <TypingEffect messages={['Professional Experience']}></TypingEffect>
           </div>
           <p className="scrollbar flex overflow-auto">
-            {`I am a Full Stack Software Engineer specializing in React, Next.js, and AWS, with a passion for building high-performance, scalable web applications. Focused on creating seamless user experiences and optimizing UI through modern design principles and agile methodologies.`}
+            {`I am a Full Stack Software Engineer specializing in React, Next.js, TypeScript, and AWS, with a passion for building high-performance, scalable web applications. Focused on creating seamless user experiences and optimizing UI through modern design principles and agile methodologies.`}
             <br/><br/>
             {`My experience at CoStar Group includes designing and developing server-side rendered applications with a strong emphasis on SEO optimization and reusable component architecture. I worked on integrating automated testing frameworks like Jest and Cypress, improving website indexing for large-scale content, and leading the development of UI features using Tailwind CSS. I also played a key role in launching new digital experiences, enhancing content accessibility, and optimizing API endpoints for better performance.`}
             <br/><br/>

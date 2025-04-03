@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export default function GitHub() {
   return (
-    <div>
+    <div className='shadow-md rounded-xl'>
       <div className='flex items-center rounded-t-xl border-b-1 border-slate-400 bg-gray-200 p-3'>
         <Image src={GitHubLogo} alt='GitHubLogo' width={28} height={24}></Image>
         <Image src={GitHubLogoText} alt='GitHubLogoText' height={28}></Image>

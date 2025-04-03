@@ -31,7 +31,7 @@ export default function Home() {
           height='556'
           allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
           loading='lazy'
-          className='mid:block hidden'
+          className='mid:block hidden shadow-md rounded-xl'
         ></iframe>
       </div>
       <iframe
@@ -40,7 +40,7 @@ export default function Home() {
         height='556'
         allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
         loading='lazy'
-        className='mid:hidden'
+        className='mid:hidden shadow-md rounded-xl'
       ></iframe>
     </section>
   )
