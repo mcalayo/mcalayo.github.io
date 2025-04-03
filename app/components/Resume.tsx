@@ -10,6 +10,7 @@ const Resume = () => {
 
   const onClickHandler = () => {
     setShowResume(true)
+    window.scrollTo(0,0)
   }
 
   return (<div>
