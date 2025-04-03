@@ -107,26 +107,26 @@ const Navbar = () => {
           <div className='absolute top-16 right-0 flex h-[calc(100vh-64px)] w-screen flex-col gap-y-6 overflow-hidden bg-sky-100 px-4 py-6 sm:w-80'>
             <button onClick={() => handleMenuItemClick(2)} type='button'>
               <Link
-                className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[123px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
-                href={'/log-in'}
-              >
-                Log-In
-              </Link>
-            </button>
-            <button onClick={() => handleMenuItemClick(2)} type='button'>
-              <Link
-                className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
-                href={'/profile'}
-              >
-                Profile
-              </Link>
-            </button>
-            <button onClick={() => handleMenuItemClick(2)} type='button'>
-              <Link
                 className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[117px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
-                href={'/'}
+                href={'https://linkedin.com/in/michaelcalayo'}
               >
-                Log-Out
+                LinkedIn
+              </Link>
+            </button>
+            <button onClick={() => handleMenuItemClick(2)} type='button'>
+              <Link
+                className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[122px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
+                href={'https://github.com/mcalayo/mcalayo.github.io'}
+              >
+                GitHub
+              </Link>
+            </button>
+            <button onClick={() => handleMenuItemClick(2)} type='button'>
+              <Link
+                className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[120px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
+                href={'/contact'}
+              >
+                Contact
               </Link>
             </button>
           </div>

@@ -2,62 +2,37 @@ import GitHub from '../components/GitHub'
 import LinkedIn from '../components/LinkedIn'
 import TypingEffect from '../components/ReactTyping'
 import Resume from '../components/Resume'
-import ResumeButton from '../components/ResumeButton'
 
 export default async function Page() {
   return (
     <section className='mid:p-12 flex flex-col gap-4 p-6'>
-      <div className='flex h-[516px] flex-col justify-between gap-12 rounded-2xl bg-sky-300/20 p-2 md:flex-row'>
+      <div className='flex h-[453px] flex-col justify-between gap-12 rounded-2xl bg-sky-300/20 p-2 md:flex-row'>
         <div className='flex h-full w-full flex-col overflow-hidden p-4'>
           <div className='mid:text-l flex pb-1 text-sm font-bold text-slate-600'>
-            <TypingEffect messages={['About me']}></TypingEffect>
+            <TypingEffect messages={['Professional Experience']}></TypingEffect>
           </div>
-          <p className='scrollbar flex overflow-auto'>
-            {`Hey there! I'm Michael, and when I'm not coding or diving
-            into creative projects, you'll find me pursuing a variety of
-            hobbies that keep me inspired and energized. I have a deep love for
-            painting, where I enjoy expressing myself through colors and
-            brushstrokes. Whether it's abstract art or landscapes, painting
-            allows me to relax and tap into my creative side. I'm also an
-            avid runner and biker—nothing beats the feeling of training for a
-            race. Both sports give me a sense of freedom and a chance to clear
-            my mind, all while staying healthy. In addition to physical
-            activities, making music and DJing are some of my favorite ways to
-            express my emotions and connect with others. I love experimenting
-            with sounds and rhythms to create unique tracks and share them with
-            friends or at local events. When I need to unwind, you'll likely
-            find me swimming—whether it's in a pool or at the beach,
-            swimming is my way of resetting and feeling at peace with the world.
-            And of course, I'm always exploring new things in the world of
-            coding. I'm passionate about building projects that solve
-            problems, and I'm always learning new tools and techniques to
-            improve my skills. Each of these activities brings something special
-            to my life, and I love how they balance each other out—creativity,
-            adventure, and technology all wrapped into one. Feel free to reach
-            out if you'd like to connect over any of these interests, or
-            just chat about what's next on the horizon!`}
+          <p className="scrollbar flex overflow-auto">
+            {`I am a Full Stack Software Engineer specializing in React, Next.js, and AWS, with a passion for building high-performance, scalable web applications. Focused on creating seamless user experiences and optimizing UI through modern design principles and agile methodologies.`}
+            <br/><br/>
+            {`My experience at CoStar Group includes designing and developing server-side rendered applications with a strong emphasis on SEO optimization and reusable component architecture. I worked on integrating automated testing frameworks like Jest and Cypress, improving website indexing for large-scale content, and leading the development of UI features using Tailwind CSS. I also played a key role in launching new digital experiences, enhancing content accessibility, and optimizing API endpoints for better performance.`}
+            <br/><br/>
+            {`With an AWS Cloud Practitioner certification, I have expertise in API development, cloud technologies, and CI/CD pipelines. I am passionate about building intuitive, efficient, and scalable applications that enhance user engagement and business impact.`}
+            <br/><br/>
+            {`Let's connect and create something amazing together!`}
           </p>
         </div>
 
         <div className='mid:flex hidden h-[468px] w-[350px] flex-col gap-2 rounded-xl'>
           <LinkedIn></LinkedIn>
           <GitHub></GitHub>
-          <ResumeButton></ResumeButton>
+          <Resume></Resume>
         </div>
       </div>
       <div className='mid:hidden flex h-[468px] w-full flex-col gap-2 rounded-xl'>
         <LinkedIn></LinkedIn>
         <GitHub></GitHub>
-        <ResumeButton></ResumeButton>
+        <Resume></Resume>
       </div>
-      {false && (
-        <div className='absolute top-16 left-0 h-[calc(100vh-64px)] w-full'>
-          <button className='absolute z-50'>TEST</button>
-          <div className='h-full'>
-            <Resume></Resume>
-          </div>
-        </div>
-      )}
     </section>
   )
 }
