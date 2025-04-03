@@ -104,7 +104,7 @@ const Navbar = () => {
       </div>
       {showUserMenu && (
         <div className='absolute top-16 left-0'>
-          <div className='absolute left-[calc(100vw-320px)] flex h-[calc(100vh-64px)] w-screen flex-col gap-y-6 overflow-hidden bg-sky-100 px-4 py-6 sm:w-80'>
+          <div className='absolute flex h-[calc(100vh-64px)] w-screen flex-col gap-y-6 overflow-hidden bg-sky-100 px-4 py-6 sm:left-[calc(100vw-320px)] sm:w-80'>
             <button onClick={() => handleMenuItemClick(2)} type='button'>
               <Link
                 className='mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[117px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
