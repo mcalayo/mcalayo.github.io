@@ -8,7 +8,7 @@ const ResumeButton: React.FC<ResumeButtonProps> = ({ onClick }) => {
 
   return (
     <button
-      className='text-l shadow-md rounded-full bg-sky-700 px-4 w-full py-1 text-center font-medium text-white hover:cursor-pointer hover:bg-sky-800 focus:outline-none'
+      className='w-full px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white text-sm font-medium rounded-lg transition-colors cursor-pointer'
       onClick={onClick}
     >
       View Resume

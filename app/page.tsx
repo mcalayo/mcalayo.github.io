@@ -13,6 +13,8 @@ const skills = [
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [formError, setFormError] = useState<string | null>(null)
 
   return (
     <>
@@ -119,18 +121,53 @@ export default function Home() {
             </p>
           </div>
           <div className='relative flex flex-1 flex-col rounded-xl bg-slate-800/50 border border-slate-700/40 p-6'>
-            <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }} className={`flex flex-col gap-3 ${submitted ? 'invisible' : ''}`}>
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault()
+                setFormError(null)
+                setLoading(true)
+                const fd = new FormData(e.currentTarget)
+                try {
+                  const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      name: fd.get('name'),
+                      email: fd.get('email'),
+                      message: fd.get('message'),
+                      _hp: fd.get('_hp'),
+                    }),
+                  })
+                  const data = await res.json()
+                  if (!res.ok) {
+                    setFormError(data.error ?? 'Something went wrong. Please try again.')
+                  } else {
+                    setSubmitted(true)
+                  }
+                } catch {
+                  setFormError('Something went wrong. Please try again.')
+                } finally {
+                  setLoading(false)
+                }
+              }}
+              className={`flex flex-col gap-3 ${submitted ? 'invisible' : ''}`}
+            >
               <h3 className='text-lg font-semibold text-slate-100 mb-1'>Send a Message</h3>
+              {/* Honeypot — hidden from real users, bots will fill it */}
+              <input type='text' name='_hp' tabIndex={-1} autoComplete='off' style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, width: 0 }} />
               <input type='text' name='name' placeholder='Your Name' required className='w-full p-2.5 bg-slate-700/40 border border-slate-600/60 rounded-lg text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-sky-500/70 transition-colors text-sm' />
               <input type='email' name='email' placeholder='Your Email' required className='w-full p-2.5 bg-slate-700/40 border border-slate-600/60 rounded-lg text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-sky-500/70 transition-colors text-sm' />
               <textarea name='message' rows={5} placeholder='Your Message' required className='w-full p-2.5 bg-slate-700/40 border border-slate-600/60 rounded-lg resize-none text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-sky-500/70 transition-colors text-sm' maxLength={250}></textarea>
-              <button type='submit' className='w-full bg-sky-600 text-white p-2.5 rounded-lg hover:bg-sky-500 hover:cursor-pointer transition-colors text-sm font-medium'>Send Message</button>
+              {formError && <p className='text-red-400 text-xs'>{formError}</p>}
+              <button type='submit' disabled={loading} className='w-full px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white text-sm font-medium rounded-lg transition-colors cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed'>
+                {loading ? 'Sending…' : 'Send Message'}
+              </button>
             </form>
             {submitted && (
               <div className='absolute inset-0 flex flex-col items-center justify-center gap-3 text-center p-6'>
                 <p className='text-slate-100 font-semibold text-lg'>Thank you for getting in touch!</p>
                 <p className='text-slate-400 text-sm'>I&apos;ll get back to you soon!</p>
-                <button onClick={() => setSubmitted(false)} className='mt-2 px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white text-sm font-medium rounded-lg transition-colors cursor-pointer'>Send another message</button>
+                <button onClick={() => setSubmitted(false)} className='px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white text-sm font-medium rounded-lg transition-colors cursor-pointer'>Send another message</button>
               </div>
             )}
           </div>
