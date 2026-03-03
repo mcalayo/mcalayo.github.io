@@ -10,32 +10,51 @@
     --breakpoint-linkedin: 1177px;
 }
 
+@keyframes aurora1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(60px, -50px) scale(1.6); }
+  66%       { transform: translate(-40px, 40px) scale(1.95); }
+}
+
+@keyframes aurora2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-70px, 50px) scale(1.48); }
+  66%       { transform: translate(50px, -40px) scale(1.65); }
+}
+
+@keyframes aurora3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(50px, -70px) scale(1.4); }
+}
+
+@keyframes aurora4 {
+  0%, 100% { transform: translate(0, 0) scale(0.5); }
+  40%       { transform: translate(-60px, 40px) scale(1.50); }
+  80%       { transform: translate(30px, -30px) scale(1.75); }
+}
+
+.aurora-1 { animation: aurora1 29s ease-in-out infinite; }
+.aurora-2 { animation: aurora2 27s ease-in-out infinite; }
+.aurora-3 { animation: aurora3 28s ease-in-out infinite; }
+.aurora-4 { animation: aurora4 29s ease-in-out infinite; }
+
 @layer utilities {
     .scrollbar::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-    }
-  
-    .scrollbar::-webkit-scrollbar-track {
-      border-radius: 100vh;
-      background: #aae2fe;
-    }
-  
-    .scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #96ddff;
+      width: 6px;
+      height: 6px;
     }
 
-    .resume-scrollbar::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-    }
-  
-    .resume-scrollbar::-webkit-scrollbar-track {
+    .scrollbar::-webkit-scrollbar-track {
       border-radius: 100vh;
-      background: transparent;
+      background: #1e293b;
     }
-  
-    .resume-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #d1d5dc;
+
+    .scrollbar::-webkit-scrollbar-thumb {
+      border-radius: 100vh;
+      background: #475569;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
     }
   }

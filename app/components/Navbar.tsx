@@ -1,143 +1,141 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import NavButton from './NavButton'
-import { useState } from 'react'
+import { motion, AnimatePresence, useScroll } from 'framer-motion'
 
-enum menuType {
-  HAMBURGER = 1,
-  USER = 2,
-  LOGOUT = 3
-}
+const navLinks = [
+  { href: '#home', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#contact', label: 'Contact' },
+]
 
 const Navbar = () => {
-  const [showHamburgerMenu, setShowHamburgerMenu] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
+  const { scrollYProgress } = useScroll()
 
-  const [showUserMenu, setShowUserMenu] = useState(false)
-
-  function handleHamburgerClick(): void {
-    if (showHamburgerMenu) {
-      setShowHamburgerMenu(false)
-    } else {
-      setShowUserMenu(false)
-      setShowHamburgerMenu(true)
+  useEffect(() => {
+    const sections = ['home', 'about', 'contact']
+    const handleScroll = () => {
+      const threshold = window.innerHeight * 0.4
+      let current = 'home'
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i])
+        if (el && el.getBoundingClientRect().top <= threshold) {
+          current = sections[i]
+          break
+        }
+      }
+      setActiveSection(current)
     }
-  }
-
-  function handleUserClick(): void {
-    if (showUserMenu) {
-      setShowUserMenu(false)
-    } else {
-      setShowHamburgerMenu(false)
-      setShowUserMenu(true)
-    }
-  }
-
-  function handleMenuItemClick(type: number): void {
-    if (type == menuType.HAMBURGER) {
-      handleHamburgerClick()
-    }
-    if (type == menuType.USER) {
-      handleUserClick()
-    }
-    if (type == menuType.LOGOUT) {
-      handleUserClick()
-    }
-  }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <div className='grid h-16 grid-flow-col grid-rows-1 items-center justify-between border-b border-slate-400 px-6'>
-      <div className='z-10'>
-        <NavButton
-          onClickHandler={handleHamburgerClick}
-          buttonType={'HAMBURGER'}
-        ></NavButton>
-      </div>
-      {showHamburgerMenu && (
-        <div className='absolute top-16 left-0'>
-          <div className='flex h-[calc(100vh-64px)] w-screen flex-col gap-y-6 overflow-hidden bg-sky-100 px-4 py-6 sm:w-80'>
-            <button onClick={() => handleMenuItemClick(1)} type='button'>
-              <Link
-                className='shadow-sm mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
-                href={'/'}
-              >
-                Home
-              </Link>
-            </button>
-            <button onClick={() => handleMenuItemClick(1)} type='button'>
-              <Link
-                className='shadow-sm mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
-                href={'/about'}
-              >
-                About
-              </Link>
-            </button>
-            <button onClick={() => handleMenuItemClick(1)} type='button'>
-              <Link
-                className='shadow-sm mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[124px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
-                href={'/music'}
-              >
-                Music
-              </Link>
-            </button>
-          </div>
+    <>
+      {/* Scroll progress bar */}
+      <motion.div
+        className='fixed top-0 left-0 right-0 h-[3px] bg-sky-400 origin-left z-50'
+        style={{ scaleX: scrollYProgress }}
+      />
 
-          <button
-            className='absolute top-0 left-80 hidden h-[calc(100vh-64px)] w-[calc(100vw-320px)] bg-black opacity-20 sm:block'
-            onClick={() => setShowHamburgerMenu(false)}
-          ></button>
+      {/* Desktop sidebar */}
+      <nav className='hidden mid:flex fixed left-0 top-0 h-screen w-64 bg-slate-900 border-r border-slate-700/50 flex-col p-8 z-40'>
+        <div className='mb-12'>
+          <Link href='#home' className='text-xl font-bold text-slate-100 hover:text-sky-400 transition-colors'>
+            Michael Calayo
+          </Link>
+          <p className='text-sky-400 text-sm mt-1'>Full Stack Engineer</p>
         </div>
-      )}
 
-      <Link
-        href='/'
-        className='title-md:text-4xl text-2xl font-bold text-slate-700'
-      >
-        Michael Calayo
-      </Link>
-
-      <div className='z-10 flex'>
-        <NavButton
-          onClickHandler={handleUserClick}
-          buttonType={'USER'}
-        ></NavButton>
-      </div>
-      {showUserMenu && (
-        <div className='absolute top-16 left-0'>
-          <div className='absolute flex h-[calc(100vh-64px)] w-screen flex-col gap-y-6 overflow-hidden bg-sky-100 px-4 py-6 sm:left-[calc(100vw-320px)] sm:w-80'>
-            <button onClick={() => handleMenuItemClick(2)} type='button'>
+        <div className='flex flex-col gap-6 flex-1'>
+          {navLinks.map(({ href, label }) => {
+            const isActive = activeSection === href.slice(1)
+            return (
               <Link
-                className='shadow-sm mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[117px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
-                href={'https://linkedin.com/in/michaelcalayo'}
+                key={href}
+                href={href}
+                onClick={() => setActiveSection(href.slice(1))}
+                className={`text-sm font-medium transition-colors duration-200 ${isActive ? 'text-sky-400' : 'text-slate-400 hover:text-slate-200'}`}
               >
+                {label}
+              </Link>
+            )
+          })}
+          <Link href='https://linkedin.com/in/michaelcalayo' target='_blank' className='text-sm font-medium text-slate-400 hover:text-slate-200 transition-colors duration-200'>
+            LinkedIn
+          </Link>
+          <Link href='https://github.com/mcalayo/mcalayo.github.io' target='_blank' className='text-sm font-medium text-slate-400 hover:text-slate-200 transition-colors duration-200'>
+            GitHub
+          </Link>
+        </div>
+      </nav>
+
+      {/* Mobile top bar */}
+      <div className='flex mid:hidden fixed top-0 left-0 right-0 h-16 bg-slate-900/95 backdrop-blur border-b border-slate-700/50 items-center justify-between px-6 z-40'>
+        <Link href='#home' className='text-lg font-bold text-slate-100'>
+          Michael Calayo
+        </Link>
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className='text-slate-300 hover:text-sky-400 p-2 transition-colors'
+          aria-label='Toggle menu'
+        >
+          <div className='flex flex-col gap-1.5 w-6'>
+            <motion.span animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 8 : 0 }} className='block h-0.5 bg-current rounded-full' />
+            <motion.span animate={{ opacity: menuOpen ? 0 : 1 }} className='block h-0.5 bg-current rounded-full' />
+            <motion.span animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -8 : 0 }} className='block h-0.5 bg-current rounded-full' />
+          </div>
+        </button>
+      </div>
+
+      {/* Mobile full-screen overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className='fixed inset-0 bg-slate-900 z-30 flex flex-col items-center justify-center mid:hidden'
+          >
+            {navLinks.map(({ href, label }, i) => (
+              <motion.div
+                key={href}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: i * 0.07, duration: 0.3 }}
+              >
+                <Link
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className='text-5xl font-bold text-slate-100 hover:text-sky-400 transition-colors py-4 block text-center'
+                >
+                  {label}
+                </Link>
+              </motion.div>
+            ))}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.25 }}
+              className='flex gap-8 mt-12 text-slate-400'
+            >
+              <Link href='https://linkedin.com/in/michaelcalayo' onClick={() => setMenuOpen(false)} target='_blank' className='hover:text-sky-400 transition-colors'>
                 LinkedIn
               </Link>
-            </button>
-            <button onClick={() => handleMenuItemClick(2)} type='button'>
-              <Link
-                className='shadow-sm mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[122px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
-                href={'https://github.com/mcalayo/mcalayo.github.io'}
-              >
+              <Link href='https://github.com/mcalayo/mcalayo.github.io' onClick={() => setMenuOpen(false)} target='_blank' className='hover:text-sky-400 transition-colors'>
                 GitHub
               </Link>
-            </button>
-            <button onClick={() => handleMenuItemClick(2)} type='button'>
-              <Link
-                className='shadow-sm mb-2 w-10 cursor-pointer rounded-full bg-sky-300/20 px-[120px] py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-sky-300/50'
-                href={'/contact'}
-              >
-                Contact
-              </Link>
-            </button>
-          </div>
-
-          <button
-            className='absolute top-0 left-0 hidden h-[calc(100vh-64px)] w-[calc(100vw-320px)] bg-black opacity-20 sm:block'
-            onClick={() => setShowUserMenu(false)}
-          ></button>
-        </div>
-      )}
-    </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }
 
