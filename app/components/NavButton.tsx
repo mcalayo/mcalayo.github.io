@@ -16,12 +16,6 @@ const NavButton: React.FC<NavButtonProps> = ({
   if (buttonType === 'USER') {
     return (
       <div className='flex items-center'>
-        {/* <a
-          href='/sign-up'
-          className='absolute right-15 hidden text-sm text-blue-500 sm:block'
-        >
-          sign-up
-        </a> */}
         <button
           className='rounded-lg p-1 hover:bg-sky-300/50'
           onClick={onClickHandler}

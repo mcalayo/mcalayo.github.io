@@ -4,7 +4,7 @@ interface ResumeButtonProps {
   onClick?: () => void;
 }
 
-const ResumeButton: React.FC<ResumeButtonProps> = ({onClick}) => {
+const ResumeButton: React.FC<ResumeButtonProps> = ({ onClick }) => {
 
   return (
     <button
