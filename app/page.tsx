@@ -5,6 +5,8 @@ import TypingEffect from './components/ReactTyping'
 import GitHub from './components/GitHub'
 import LinkedIn from './components/LinkedIn'
 import Resume from './components/Resume'
+import PhotoGallery from './components/PhotoGallery'
+import TicTacToe from './components/TicTacToe'
 
 const skills = [
   'React', 'Next.js', 'TypeScript', 'Node.js',
@@ -101,7 +103,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id='contact' className='mid:px-12 mid:py-16 flex flex-col gap-4 px-6 py-10 pb-96 mid:pb-[32rem]'>
+      <section id='contact' className='mid:px-12 mid:py-16 flex flex-col gap-4 px-6 py-10'>
         <div className='flex flex-col md:flex-row gap-8'>
           <div className='flex flex-1 flex-col gap-5 overflow-hidden'>
             <div>
@@ -172,6 +174,31 @@ export default function Home() {
             )}
           </div>
         </div>
+      </section>
+      <section id='gallery' className='mid:px-12 mid:py-16 flex flex-col gap-4 px-6 py-10'>
+        <div>
+          <div className='flex text-xs font-semibold tracking-widest text-sky-400 uppercase mb-2'>
+            <TypingEffect messages={['Gallery']}></TypingEffect>
+          </div>
+          <h2 className='text-2xl font-bold text-slate-100'>Photos</h2>
+        </div>
+        <p className='text-slate-300 text-sm leading-relaxed'>
+          {`A collection of moments from life outside of code — painting, running, biking, DJing, and more. Click a card or use the arrows to flip through.`}
+        </p>
+        <PhotoGallery />
+      </section>
+
+      <section id='interactive' className='mid:px-12 mid:py-16 flex flex-col gap-4 px-6 py-10 pb-96 mid:pb-[20rem]'>
+        <div>
+          <div className='flex text-xs font-semibold tracking-widest text-sky-400 uppercase mb-2'>
+            <TypingEffect messages={['Interactive']}></TypingEffect>
+          </div>
+          <h2 className='text-2xl font-bold text-slate-100'>Tic Tac Toe</h2>
+        </div>
+        <p className='text-slate-300 text-sm leading-relaxed'>
+          {`Take a break and play a round. You're X, the computer is O — and it plays a pretty good game. Good luck!`}
+        </p>
+        <TicTacToe />
       </section>
     </>
   )

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 
@@ -8,15 +8,21 @@ const navLinks = [
   { href: '#home', label: 'Home' },
   { href: '#about', label: 'About' },
   { href: '#contact', label: 'Contact' },
+  { href: '#gallery', label: 'Photos' },
+  { href: '#interactive', label: 'Interactive' },
 ]
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [clickOverride, setClickOverride] = useState<string | null>(null)
+  const clickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const { scrollYProgress } = useScroll()
 
+  const effectiveActive = clickOverride ?? activeSection
+
   useEffect(() => {
-    const sections = ['home', 'about', 'contact']
+    const sections = ['home', 'about', 'contact', 'gallery', 'interactive']
     const handleScroll = () => {
       const threshold = window.innerHeight * 0.4
       let current = 'home'
@@ -33,6 +39,16 @@ const Navbar = () => {
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    return () => { if (clickTimerRef.current) clearTimeout(clickTimerRef.current) }
+  }, [])
+
+  const handleNavClick = (section: string) => {
+    setClickOverride(section)
+    if (clickTimerRef.current) clearTimeout(clickTimerRef.current)
+    clickTimerRef.current = setTimeout(() => setClickOverride(null), 1000)
+  }
 
   return (
     <>
@@ -53,12 +69,12 @@ const Navbar = () => {
 
         <div className='flex flex-col gap-6 flex-1'>
           {navLinks.map(({ href, label }) => {
-            const isActive = activeSection === href.slice(1)
+            const isActive = effectiveActive === href.slice(1)
             return (
               <Link
                 key={href}
                 href={href}
-                onClick={() => setActiveSection(href.slice(1))}
+                onClick={() => handleNavClick(href.slice(1))}
                 className={`text-sm font-medium transition-colors duration-200 ${isActive ? 'text-sky-400' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 {label}
