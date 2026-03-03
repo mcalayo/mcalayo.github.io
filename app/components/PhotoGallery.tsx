@@ -1,13 +1,17 @@
 'use client'
 import React, { useRef, useState } from 'react'
+import Image from 'next/image'
 
 const photos = [
-  { id: 1, bg: 'linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%)', label: 'Photo 1' },
-  { id: 2, bg: 'linear-gradient(135deg, #10b981 0%, #0ea5e9 100%)', label: 'Photo 2' },
-  { id: 3, bg: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)', label: 'Photo 3' },
-  { id: 4, bg: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)', label: 'Photo 4' },
-  { id: 5, bg: 'linear-gradient(135deg, #14b8a6 0%, #3b82f6 100%)', label: 'Photo 5' },
-  { id: 6, bg: 'linear-gradient(135deg, #f43f5e 0%, #8b5cf6 100%)', label: 'Photo 6' },
+  '/images/gallery/Gallery1.JPG',
+  '/images/gallery/Gallery2.JPG',
+  '/images/gallery/Gallery3.JPG',
+  '/images/gallery/Gallery4.JPG',
+  '/images/gallery/Gallery5.JPG',
+  '/images/gallery/Gallery6.JPG',
+  '/images/gallery/Gallery7.JPG',
+  '/images/gallery/Gallery8.JPG',
+  '/images/gallery/Gallery9.JPG',
 ]
 
 export default function PhotoGallery() {
@@ -45,27 +49,15 @@ export default function PhotoGallery() {
   return (
     <div className='flex flex-col items-center gap-6'>
       {/* Card stack */}
-      <div className='relative' style={{ width: 'min(max(50vw, 300px), 100%)', height: 'clamp(260px, 34vw, 500px)', perspective: '1000px' }}>
+      <div className='relative' style={{ width: 'min(max(50vw, 300px), 100%)', height: 'clamp(260px, 34vw, 500px)', perspective: '1000px', zIndex: 31 }}>
         {/* Card 3 — back */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          transform: 'translate(14px, 14px)',
-          borderRadius: 12, overflow: 'hidden', zIndex: 1,
-          background: getPhoto(2).bg,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <span className='text-white/30 text-sm font-medium select-none'>{getPhoto(2).label}</span>
+        <div style={{ position: 'absolute', inset: 0, transform: 'translate(14px, 14px)', borderRadius: 12, overflow: 'hidden', zIndex: 1, opacity: 0.5 }}>
+          <Image src={getPhoto(2)} alt='' fill quality={100} style={{ objectFit: 'cover' }} sizes='(min-width: 768px) 50vw, 100vw' />
         </div>
 
         {/* Card 2 — middle */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          transform: 'translate(7px, 7px)',
-          borderRadius: 12, overflow: 'hidden', zIndex: 2,
-          background: getPhoto(1).bg,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <span className='text-white/40 text-sm font-medium select-none'>{getPhoto(1).label}</span>
+        <div style={{ position: 'absolute', inset: 0, transform: 'translate(7px, 7px)', borderRadius: 12, overflow: 'hidden', zIndex: 2, opacity: 0.75 }}>
+          <Image src={getPhoto(1)} alt='' fill quality={100} style={{ objectFit: 'cover' }} sizes='(min-width: 768px) 50vw, 100vw' />
         </div>
 
         {/* Card 1 — front (animated) */}
@@ -73,15 +65,9 @@ export default function PhotoGallery() {
           ref={cardRef}
           onClick={() => animate(1)}
           onTransitionEnd={handleTransitionEnd}
-          style={{
-            position: 'absolute', inset: 0,
-            borderRadius: 12, overflow: 'hidden', zIndex: 3,
-            background: getPhoto(0).bg,
-            cursor: 'pointer',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}
+          style={{ position: 'absolute', inset: 0, borderRadius: 12, overflow: 'hidden', zIndex: 3, cursor: 'pointer' }}
         >
-          <span className='text-white/70 text-lg font-semibold select-none'>{getPhoto(0).label}</span>
+          <Image src={getPhoto(0)} alt='' fill quality={100} style={{ objectFit: 'cover' }} sizes='(min-width: 768px) 50vw, 100vw' priority />
         </div>
       </div>
 

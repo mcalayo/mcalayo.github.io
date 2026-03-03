@@ -78,7 +78,7 @@ export default function Home() {
               <br /><br />
               {`My experience at CoStar Group includes designing and developing server-side rendered applications with a strong emphasis on SEO optimization and reusable component architecture. I worked on integrating automated testing frameworks like Jest and Cypress, improving website indexing for large-scale content, and leading the development of UI features using Tailwind CSS. I also played a key role in launching new digital experiences, enhancing content accessibility, and optimizing API endpoints for better performance.`}
               <br /><br />
-              {`With an AWS Cloud Practitioner certification, I have expertise in API development, cloud technologies, and CI/CD pipelines. I am passionate about building intuitive, efficient, and scalable applications that enhance user engagement and business impact.`}
+              {`With AWS Cloud Practitioner and AWS AI Practitioner certifications, I have expertise in API development, cloud technologies, deploying AI models, and CI/CD pipelines. I am passionate about building intuitive, efficient, and scalable applications that enhance user engagement and business impact.`}
               <br /><br />
               {`Let's `}<a className='text-sky-400 underline hover:text-sky-300' href='#contact'>connect</a>{` and create something amazing together!`}
             </p>
@@ -113,9 +113,9 @@ export default function Home() {
               <h2 className='text-2xl font-bold text-slate-100'>Get In Touch</h2>
             </div>
             <p className='text-slate-300 text-sm leading-relaxed'>
-              {`Whether you're reaching out about a project, a potential collaboration, looking to book a DJ, or just want to say hey—I'd love to hear from you.`}
+              {`Whether you're reaching out about a project, a potential collaboration, looking to book a DJ, or just want to say hey, I'd love to hear from you.`}
               <br /><br />
-              {`Drop me a message through the form or email me at michaelcalayo@gmail.com. I'll get back to you as soon as I can!`}
+              {`Drop me a message through the form and I'll get back to you as soon as I can!`}
               <br /><br />
               {`Looking forward to connecting.`}
               <br /><br />
@@ -183,7 +183,7 @@ export default function Home() {
           <h2 className='text-2xl font-bold text-slate-100'>Photos</h2>
         </div>
         <p className='text-slate-300 text-sm leading-relaxed'>
-          {`A collection of moments from life outside of code — painting, running, biking, DJing, and more. Click a card or use the arrows to flip through.`}
+          {`A collection of moments from life outside of code.`}
         </p>
         <PhotoGallery />
       </section>
@@ -196,7 +196,7 @@ export default function Home() {
           <h2 className='text-2xl font-bold text-slate-100'>Tic Tac Toe</h2>
         </div>
         <p className='text-slate-300 text-sm leading-relaxed'>
-          {`Take a break and play a round. You're X, the computer is O — and it plays a pretty good game. Good luck!`}
+          {`You're X and the computer is O, it plays a pretty good game. Good luck!`}
         </p>
         <TicTacToe />
       </section>
