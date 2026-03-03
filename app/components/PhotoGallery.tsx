@@ -49,7 +49,7 @@ export default function PhotoGallery() {
   return (
     <div className='flex flex-col items-center gap-6'>
       {/* Card stack */}
-      <div className='relative' style={{ width: 'min(max(50vw, 300px), 100%)', height: 'clamp(260px, 34vw, 500px)', perspective: '1000px', zIndex: 31 }}>
+      <div className='relative mid:z-[31]' style={{ width: 'min(max(50vw, 300px), 100%)', height: 'clamp(260px, 34vw, 500px)', perspective: '1000px' }}>
         {/* Card 3 — back */}
         <div style={{ position: 'absolute', inset: 0, transform: 'translate(14px, 14px)', borderRadius: 12, overflow: 'hidden', zIndex: 1, opacity: 0.5 }}>
           <Image src={getPhoto(2)} alt='' fill quality={100} style={{ objectFit: 'cover' }} sizes='(min-width: 768px) 50vw, 100vw' />

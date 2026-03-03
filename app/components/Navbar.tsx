@@ -41,6 +41,10 @@ const Navbar = () => {
   }, [])
 
   useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+  }, [menuOpen])
+
+  useEffect(() => {
     return () => { if (clickTimerRef.current) clearTimeout(clickTimerRef.current) }
   }, [])
 
